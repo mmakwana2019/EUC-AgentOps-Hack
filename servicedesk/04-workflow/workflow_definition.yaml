@@ -1,0 +1,78 @@
+# Foundry workflow definition for the EndpointOps Inc. service desk pipeline.
+# Import via: Foundry portal -> Workflows -> Import
+
+name: endpoint-service-desk-workflow
+description: >
+  Triage & Diagnostic agent classifies incoming tickets, branching to
+  Remediation for safe high-confidence fixes or Escalation & Knowledge
+  for everything else, converging into ticket update & reporting.
+
+trigger:
+  type: event
+  source: servicenow.new_ticket
+
+nodes:
+  - id: triage
+    type: agent
+    agent_ref: triage_agent
+    inputs:
+      - ticket
+      - device_context
+    outputs:
+      - category
+      - confidence
+      - reasoning
+      - recommended_action
+
+  - id: remediation
+    type: agent
+    agent_ref: remediation_agent
+    inputs:
+      - triage.category
+      - triage.confidence
+      - ticket.device_id
+    outputs:
+      - status
+      - action_taken
+
+  - id: escalation
+    type: agent
+    agent_ref: escalation_agent
+    inputs:
+      - triage.category
+      - triage.confidence
+      - triage.reasoning
+      - ticket
+    outputs:
+      - handoff_summary
+
+  - id: ticket_update
+    type: action
+    action_ref: servicenow.update_ticket
+    inputs:
+      - source_node_output   # from whichever branch executed
+    outputs:
+      - ticket_status
+
+edges:
+  - from: triage
+    to: remediation
+    condition: "recommended_action == 'remediate'"
+
+  - from: triage
+    to: escalation
+    condition: "recommended_action != 'remediate'"   # default: escalate on any doubt
+
+  - from: remediation
+    to: ticket_update
+
+  - from: escalation
+    to: ticket_update
+
+metrics:
+  - name: auto_resolution_rate
+    definition: "count(ticket_update where source_node == 'remediation') / count(ticket_update)"
+  - name: mean_time_to_resolve
+    definition: "avg(ticket_update.closed_at - ticket.opened_at)"
+  - name: top_root_causes
+    definition: "group_by(triage.category) order by count desc"

@@ -1,0 +1,29 @@
+site_name: EUC AgentOps Hack
+site_description: Hands-on Microsoft Foundry labs for building a multi-agent endpoint service desk workflow
+theme:
+  name: material
+  palette:
+    primary: indigo
+    accent: teal
+  features:
+    - navigation.tabs
+    - navigation.top
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Scenario: servicedesk/README.md
+  - Setup: servicedesk/00-setup/README.md
+  - Build Agents: servicedesk/01-build-agents/README.md
+  - Monitor: servicedesk/02-monitor/README.md
+  - Evaluate: servicedesk/03-evaluate/README.md
+  - Workflow: servicedesk/04-workflow/README.md
+
+docs_dir: .
+site_dir: site
+
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - tables

@@ -1,0 +1,41 @@
+{
+  "DEV-AND-4821": {
+    "platform": "Android Enterprise",
+    "compliance_state": "noncompliant",
+    "last_check_in": "2026-08-10T09:00:00Z",
+    "scep_status": "failed",
+    "scep_error_code": "0x80095003",
+    "assigned_policies": ["Corp-WiFi-Profile", "Corp-VPN-Profile", "SCEP-Cert-Android"]
+  },
+  "DEV-WIN-1187": {
+    "platform": "Windows 11",
+    "compliance_state": "compliant",
+    "last_check_in": "2026-08-11T14:00:00Z",
+    "wifi_profile_version": "v12",
+    "wifi_profile_previous_version": "v11",
+    "assigned_policies": ["Corp-WiFi-Profile-v12"]
+  },
+  "DEV-WIN-2093": {
+    "platform": "Windows 11",
+    "compliance_state": "noncompliant",
+    "last_check_in": "2026-08-12T08:30:00Z",
+    "compliance_report_stale": true,
+    "last_full_sync": "2026-08-09T00:00:00Z",
+    "assigned_policies": ["BitLocker-Required", "Defender-AV-Required"]
+  },
+  "DEV-WIN-3355": {
+    "platform": "Windows 11",
+    "compliance_state": "unknown",
+    "last_check_in": null,
+    "autopilot_profile": "Corp-Standard-Autopilot",
+    "enrollment_stage": "Device ESP - Device setup",
+    "enrollment_stalled_minutes": 63
+  },
+  "DEV-AND-5502": {
+    "platform": "Android Enterprise",
+    "compliance_state": "conflict",
+    "last_check_in": "2026-08-13T10:00:00Z",
+    "dynamic_groups": ["Group-Finance-Strict", "Group-Contractors-Relaxed"],
+    "assigned_policies": ["Compliance-Strict", "Compliance-Relaxed"]
+  }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "ticket_id": "INC0010234",
+    "device_id": "DEV-AND-4821",
+    "subject": "Android device certificate keeps failing to install",
+    "description": "User reports SCEP certificate deployment failing repeatedly on their Samsung Galaxy Tab. Wi-Fi and VPN profiles that depend on the cert are also not applying.",
+    "category_hint": "scep_certificate",
+    "opened_at": "2026-08-10T09:14:00Z"
+  },
+  {
+    "ticket_id": "INC0010235",
+    "device_id": "DEV-WIN-1187",
+    "subject": "Laptop keeps dropping off corporate Wi-Fi",
+    "description": "User's Windows laptop connects to corporate Wi-Fi then drops after a few minutes. Started after last week's profile update.",
+    "category_hint": "wifi_profile",
+    "opened_at": "2026-08-11T14:02:00Z"
+  },
+  {
+    "ticket_id": "INC0010236",
+    "device_id": "DEV-WIN-2093",
+    "subject": "Device shows non-compliant despite meeting requirements",
+    "description": "Device passed BitLocker and antivirus checks locally but Intune still reports non-compliant, blocking Conditional Access.",
+    "category_hint": "compliance_policy",
+    "opened_at": "2026-08-12T08:47:00Z"
+  },
+  {
+    "ticket_id": "INC0010237",
+    "device_id": "DEV-WIN-3355",
+    "subject": "New laptop stuck on Autopilot enrollment screen",
+    "description": "Freshly imaged laptop stuck at 'Preparing your device' for over an hour during Autopilot enrollment.",
+    "category_hint": "autopilot_enrollment",
+    "opened_at": "2026-08-12T11:30:00Z"
+  },
+  {
+    "ticket_id": "INC0010238",
+    "device_id": "DEV-AND-5502",
+    "subject": "Unusual: device reports two conflicting compliance policies",
+    "description": "Device is a member of two dynamic groups with contradictory compliance policies applied; unclear which is authoritative. Not seen before.",
+    "category_hint": "unknown",
+    "opened_at": "2026-08-13T10:05:00Z"
+  }
+]

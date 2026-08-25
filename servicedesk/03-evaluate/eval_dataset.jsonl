@@ -1,0 +1,5 @@
+{"ticket_id": "INC0010234", "expected_category": "scep_certificate", "expected_action": "remediate", "notes": "Clean SCEP failure signal, safe to auto-remediate"}
+{"ticket_id": "INC0010235", "expected_category": "wifi_profile", "expected_action": "remediate", "notes": "Profile version mismatch after known update, safe to auto-remediate"}
+{"ticket_id": "INC0010236", "expected_category": "compliance_policy", "expected_action": "remediate", "notes": "Stale compliance report case, not a real conflict - safe to force re-evaluation"}
+{"ticket_id": "INC0010237", "expected_category": "autopilot_enrollment", "expected_action": "escalate", "notes": "Stalled over 60 min, above escalation threshold per taxonomy"}
+{"ticket_id": "INC0010238", "expected_category": "unknown", "expected_action": "escalate", "notes": "Conflicting dynamic group policies - must never auto-remediate"}
